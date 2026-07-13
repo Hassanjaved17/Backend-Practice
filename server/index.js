@@ -10,3 +10,13 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+app.get("/api/data", (req, res) => {
+  const data = {
+    message: "Hello from the backend!",
+    timestamp: new Date(),
+  };
+  res.json(data);
+}
+);
