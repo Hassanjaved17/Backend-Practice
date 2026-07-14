@@ -1,14 +1,17 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
+import morgan from "morgan";
 
 const app = express();
-const PORT = process.env.PORT || 8000;
+const port = process.env.PORT || 8000;
 
 app.get("/", (req, res) => {
   res.send("Backend is running");
 });
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
 
 
