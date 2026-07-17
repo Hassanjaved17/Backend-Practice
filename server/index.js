@@ -9,14 +9,17 @@ const app = express();
 app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+
+
+// app.use(express.urlencoded({ extended: true }));
 
 const port = process.env.PORT || 8000;
 
 const users = [
   { id: 1, name: "Alice", email: "alice@example.com" },
   { id: 2, name: "Bob", email: "bob@example.com" },
-];
+];  
+
 
 app.get("/", (req, res) => {
   res.send("Backend is running");
@@ -32,7 +35,7 @@ app.get("/api/data", (req, res) => {
 
 app.get("/api/users", (req, res) => {
   res.json(users);
-});
+}); 
 
 app.get("/api/users/:id", (req, res) => {
   const id = Number(req.params.id);
